@@ -4,6 +4,7 @@ Implement an AI-driven Travel Suggestion application that leverages machine lear
 preferences and historical data, providing travel plans based on budget, location, and duration. The
 application should curate the best destinations by considering user feedback and present dynamic
 recommendations using natural language processing to understand user queries.
+
 Key Features:
 - Personalized travel plans generated through AI analysis of user preferences, historical travel data,
 and trends.
