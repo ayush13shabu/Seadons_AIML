@@ -16,8 +16,9 @@ display customized recommendations.
 users to interact and receive personalized travel suggestions.
 
 <h2>Instructions</h2>
--clone the repo using gitclone https://github.com/ayush13shabu/Seadons_AIML.git
--Ensure you have flask and npm, react installed
--navigate to the folder /backend/ and run the command `python app.py` to start the backend
--navigate to the folder /frontend/ and run the command `npm start` to load the frontend (will take a few mins)
-The project should run and function if the instructions are followed thoroughly.
+- clone the repo using gitclone https://github.com/ayush13shabu/Seadons_AIML.git
+- Ensure you have flask and npm, react installed
+- navigate to the folder /backend/ and run the command `python app.py` to start the backend
+- navigate to the folder /frontend/ and run the command `npm start` to load the frontend (will take a few mins)
+
+ The project should run and function if the instructions are followed thoroughly.
