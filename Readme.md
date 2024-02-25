@@ -14,6 +14,7 @@ Implement an AI-driven Travel Suggestion application that leverages machine lear
 - Ensure you have Flask and npm, React installed.
 - Navigate to the folder `/backend/` and open a command prompt run the command `python app.py` to start the backend.
 - Navigate to the folder `/frontend/` and open a command prompt run the command `npm install react-scripts` to install the required dependencies.
+- Navigate to the folder `/frontend/` and open a command prompt run the command `npm install axios` to install the required dependencies.
 - Navigate to the folder `/frontend/` and open a command prompt run the command `npm start` to load the frontend (will take a few mins).
 
 The project should run and function if the instructions are followed thoroughly.
