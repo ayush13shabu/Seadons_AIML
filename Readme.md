@@ -1,4 +1,4 @@
-#Trip planner Agnethon2024
+<h1>Trip planner Agnethon2024</h1>
 Problem Statement:
 Implement an AI-driven Travel Suggestion application that leverages machine learning to analyze user
 preferences and historical data, providing travel plans based on budget, location, and duration. The
