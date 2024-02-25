@@ -1,4 +1,4 @@
-Trip planner Agnethon2024
+#Trip planner Agnethon2024
 Problem Statement:
 Implement an AI-driven Travel Suggestion application that leverages machine learning to analyze user
 preferences and historical data, providing travel plans based on budget, location, and duration. The
@@ -14,3 +14,9 @@ ensuring the best travel experience.
 display customized recommendations.
 - User-friendly interface with a chatbot feature powered by natural language processing, allowing
 users to interact and receive personalized travel suggestions.
+##Instructions
+-clone the repo using gitclone https://github.com/ayush13shabu/Seadons_AIML.git
+-Ensure you have flask and npm, react installed
+-navigate to the folder /backend/ and run the command `python app.py` to start the backend
+-navigate to the folder /frontend/ and run the command `npm start` to load the frontend (will take a few mins)
+The project should run and function if the instructions are followed thoroughly.
