@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function TravelForm() {
   const [travelerName, setTravelerName] = useState('');
@@ -6,10 +7,11 @@ function TravelForm() {
   const [travelerGender, setTravelerGender] = useState('');
   const [transportationType, setTransportationType] = useState('');
   const [accommodationType, setAccommodationType] = useState('');
-  const [travelerBudget, setTravelerBudget] = useState('');
-  const [showModal, setShowModal] = useState(false); // State variable to control modal visibility
+  const [Budget, setTravelerBudget] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [recommendations, setRecommendations] = useState([]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = {
       travelerName,
@@ -17,27 +19,29 @@ function TravelForm() {
       travelerGender,
       transportationType,
       accommodationType,
-      travelerBudget
+      Budget: parseFloat(Budget)
     };
-    console.log(formData);
-    setShowModal(true);
-    // You can send the form data to the backend or perform further actions here
-    // Show modal when form is submitted
+    try {
+      const response = await axios.post('http://localhost:5000/recommend', formData);
+      setRecommendations(response.data);
+      setShowModal(true);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
-  const closeModal = () => { // Function to close the modal
+  const closeModal = () => {
     setShowModal(false);
   };
 
   const openChatbot = () => {
-    // Function to navigate to the chatbot webpage
-    window.open('URL_OF_YOUR_CHATBOT_PAGE', '_blank'); // Replace 'URL_OF_YOUR_CHATBOT_PAGE' with the actual URL
+    window.open('https://mediafiles.botpress.cloud/f1857890-1b7e-46bd-a801-f506c70f1ea5/webchat/bot.html', '_blank');
   };
 
   return (
     <div className="container">
       <div className="form">
-        <h2>Plan your next adventure</h2>
+      <h2 style={headerTextStyle}>Plan your next adventure</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label>
@@ -98,12 +102,12 @@ function TravelForm() {
               Traveler Budget:
               <input
                 type="number"
-                value={travelerBudget}
+                value={Budget}
                 onChange={(e) => setTravelerBudget(e.target.value)}
               />
             </label>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" style={submitButtonStyle}>Submit</button>
         </form>
       </div>
 
@@ -111,22 +115,49 @@ function TravelForm() {
       {showModal && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <a href="https://mediafiles.botpress.cloud/f1857890-1b7e-46bd-a801-f506c70f1ea5/webchat/bot.html">Chat Bot </a>
-            <p>Here goes your recommended destination information.</p>
+            <span className="close" onClick={closeModal}>&times;</span>
+            <h2>Recommended Destinations</h2>
+            <ul>
+              {recommendations.map((destination, index) => (
+                <li key={index}>{destination.Destination} - {destination.Budget}</li>
+              ))}
+            </ul>
             <button onClick={closeModal}>Close</button>
           </div>
         </div>
       )}
 
-      {/* Chatbot button */}
-      <button className="chatbot-button" onClick={openChatbot}>
-        Open Chatbot
-      </button>
+      {/* Open Chatbot button */}
+      {/* <div className="chatbot-container">
+        <button className="chatbot-button" onClick={openChatbot}>Open Chatbot</button>
+      </div> */}
     </div>
   );
 }
+
+
+// Custom styles
+const headerTextStyle = {
+  fontFamily: 'cursive', // Replace with your preferred font family
+  fontSize: '28px',
+  fontWeight: 'bold',
+  color: '#333',
+  marginBottom: '10px',
+};
+
+const submitButtonStyle = {
+  backgroundColor: '#4CAF50', /* Green background */
+  border: 'none', /* Remove borders */
+  color: 'white', /* White text */
+  padding: '15px 24px', /* Adjusted padding for slightly smaller length */
+  textAlign: 'center', /* Center text */
+  textDecoration: 'none',
+  display: 'inline-block',
+  fontSize: '16px', /* Font size */
+  margin: '4px 2px', /* Margin between buttons */
+  cursor: 'pointer', /* Pointer cursor on hover */
+  borderRadius: '8px', /* Rounded corners */
+};
+
 
 export default TravelForm;
