@@ -18,3 +18,7 @@ Implement an AI-driven Travel Suggestion application that leverages machine lear
 - In the same command prompt run the command `npm start` to load the frontend (will take a few mins).
 
 The project should run and function if the instructions are followed thoroughly.
+### Drive link (contains video and ppt)
+https://drive.google.com/drive/folders/1BXT2jLj2BSpwqJTmaSofN_1BtsXLKYpd?usp=drive_link
+### YT Video Demo
+https://youtu.be/xCNdYirBSeU
