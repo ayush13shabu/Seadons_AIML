@@ -14,7 +14,8 @@ ensuring the best travel experience.
 display customized recommendations.
 - User-friendly interface with a chatbot feature powered by natural language processing, allowing
 users to interact and receive personalized travel suggestions.
-##Instructions
+
+<h2>Instructions</h2>
 -clone the repo using gitclone https://github.com/ayush13shabu/Seadons_AIML.git
 -Ensure you have flask and npm, react installed
 -navigate to the folder /backend/ and run the command `python app.py` to start the backend
